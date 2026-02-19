@@ -1,4 +1,3 @@
-import { DateTime } from 'luxon'
 import { BaseModel, column } from '@adonisjs/lucid/orm'
 
 export default class Tour extends BaseModel {
@@ -25,6 +24,4 @@ export default class Tour extends BaseModel {
 
   @column()
   declare fecha_tour: string
-
-
 }
