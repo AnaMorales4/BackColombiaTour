@@ -10,7 +10,6 @@ export default class ToursController {
     return await Tour.query().paginate(1, 10)
   }
 
-
   /**
    * Handle form submission to create a new post
    */

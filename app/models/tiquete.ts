@@ -9,7 +9,7 @@ export default class Tiquete extends BaseModel {
   declare usuario_id: number
 
   @column()
-  declare id_tour: number
+  declare tour_id: number
 
   @column()
   declare cant_personas: number
