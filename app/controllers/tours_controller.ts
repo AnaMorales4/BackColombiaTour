@@ -1,5 +1,5 @@
-
 import type { HttpContext } from '@adonisjs/core/http'
+import Tour from '#models/tour'
 
 export default class ToursController {
     /**
@@ -7,6 +7,7 @@ export default class ToursController {
    * them
    */
   async index({}: HttpContext) {
+    return await Tour.query().paginate(1, 10)
   }
 
 
@@ -14,27 +15,46 @@ export default class ToursController {
    * Handle form submission to create a new post
    */
   async store({ request }: HttpContext) {
+    const data = request.only(['nombre_destino', 'descripcion', 'precio', 'estado', 'cupos_disponibles', 'imagen', 'fecha_tour'])
+    const tour = await Tour.create(data)
+    return tour
   }
 
   /**
    * Display a single post by id.
    */
-  async show({ params }: HttpContext) {}
-
-  /**
-   * Render the form to edit an existing post by its id.
-   *
-   * Not needed if you are creating an API server.
-   */
-  async edit({ params }: HttpContext) {}
+  async show({ params }: HttpContext) {
+    const tour = await Tour.find(params.id)
+    if (!tour) {
+      return { message: 'Tour no encontrado' }
+    }
+    return tour
+  }
 
   /**
    * Handle the form submission to update a specific post by id
    */
-  async update({ params, request }: HttpContext) {}
+  async update({ params, request }: HttpContext) {
+    const tour = await Tour.find(params.id)
+    if (!tour) {
+      return { message: 'Tour no encontrado' }
+    }
+
+    const data = request.only(['nombre_destino', 'descripcion', 'precio', 'estado', 'cupos_disponibles', 'imagen', 'fecha_tour'])
+    tour.merge(data)
+    await tour.save()
+    return tour
+  }
 
   /**
    * Handle the form submission to delete a specific post by id.
    */
-  async destroy({ params }: HttpContext) {}
+  async destroy({ params }: HttpContext) {
+    const tour = await Tour.find(params.id)
+    if (!tour) {
+      return { message: 'Tour no encontrado' }
+    }
+    await tour.delete()
+    return { message: 'Tour eliminado correctamente' }
+  }
 }
