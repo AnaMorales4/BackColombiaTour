@@ -31,7 +31,6 @@ export default class UsuariosController {
         return usuario
       }
     
-    
       /**
        * Handle the form submission to update a specific post by id
        */

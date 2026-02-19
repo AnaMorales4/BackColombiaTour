@@ -18,13 +18,13 @@ export default class Tour extends BaseModel {
   declare estado: boolean
 
   @column()
-  declare cupo_disponible: number
+  declare cupos_disponibles: number
 
   @column()
   declare imagen: string
 
-  @column.dateTime({ autoCreate: true })
-  declare fecha_tour: DateTime
+  @column()
+  declare fecha_tour: string
 
 
 }
