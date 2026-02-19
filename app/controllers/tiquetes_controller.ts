@@ -81,6 +81,9 @@ export default class TiquetesController {
           tour.cupos_disponibles += diferencia
         }
 
+        const nuevo_total = data.cant_personas * tour.precio
+        data.total = nuevo_total 
+        
         tiquete.merge(data)
         await tour.save()
         await tiquete.save()
