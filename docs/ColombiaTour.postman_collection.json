@@ -1,0 +1,462 @@
+{
+  "info": {
+    "_postman_id": "11d77b20-90ee-41df-bbb4-caaa1a84e40e",
+    "name": "ColombiaTour",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "42748011"
+  },
+  "item": [
+    {
+      "name": "usuarios",
+      "item": [
+        {
+          "name": "Listar",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3333/usuarios",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3333",
+              "path": [
+                "usuarios"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "usuario",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3333/usuarios/3",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3333",
+              "path": [
+                "usuarios",
+                "3"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Crear",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"nombre\": \"santi\",\r\n    \"email\":\"santirevuelt@gmail.com\", \r\n    \"contrasena\":\"12345678\",\r\n    \"rol\":\"admin\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3333/usuarios",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3333",
+              "path": [
+                "usuarios"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Eliminar",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3333/usuarios/2",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3333",
+              "path": [
+                "usuarios",
+                "2"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Actualizar",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"nombre\": \"ana\",\r\n    \"email\":\"ana,or@gmail.com\", \r\n    \"contrasena\":\"12345678\",\r\n    \"rol\":\"admin\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3333/usuarios/3",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3333",
+              "path": [
+                "usuarios",
+                "3"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "tours",
+      "item": [
+        {
+          "name": "Listar",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3333/tours",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3333",
+              "path": [
+                "tours"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Crear",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "[{\r\n\"nombre_destino\":\"Parque Nacional Tayrona\",\r\n\"descripcion\":\"Ubicado en la región Caribe, combina playas paradisíacas con selva tropical y una gran biodiversidad.\",\r\n\"precio\":950000,\r\n\"estado\":true,\r\n\"cupos_disponibles\": 8,\r\n\"imagen\":\"https://turistangel.com/wp-content/uploads/2024/12/Cabo-San-Juan-%E2%80%93-Parque-Tayrona-11.webp\",\r\n\"fecha_tour\":\"03/12/2026\"\r\n},\r\n\r\n{\r\n\"nombre_destino\":\"Caño Cristales\",\r\n\"descripcion\":\"Conocido como el río de los cinco colores, es famoso por sus algas que tiñen el agua de colores vibrantes.\",\r\n\"precio\":950000,\r\n\"estado\":true,\r\n\"cupos_disponibles\": 10,\r\n\"imagen\":\"https://dynamic-media.tacdn.com/media/photo-o/2f/b1/fa/62/caption.jpg?w=700&h=500&s=1\",\r\n\"fecha_tour\":\"06/18/2026\"\r\n},\r\n\r\n{\r\n\"nombre_destino\":\"Guatapé y Piedra del Peñol\",\r\n\"descripcion\":\"Destino icónico de Antioquia, famoso por la piedra monolítica y el colorido pueblo de Guatapé.\",\r\n\"precio\":350000,\r\n\"estado\":true,\r\n\"cupos_disponibles\": 10,\r\n\"imagen\":\"https://cdn.colombia.com/sdi/2025/08/20/guatape-podria-tener-hidroaviones-para-llegar-mas-rapido-desde-bogota-1295961.jpg\",\r\n\"fecha_tour\":\"04/22/2026\"\r\n},\r\n\r\n{\r\n\"nombre_destino\":\"Ciudad Perdida\",\r\n\"descripcion\":\"Antigua ciudad indígena en la Sierra Nevada de Santa Marta, ideal para los amantes del trekking.\",\r\n\"precio\":1200000,\r\n\"estado\":true,\r\n\"cupos_disponibles\": 10,\r\n\"imagen\":\"https://colombia.travel/sites/default/files/styles/imagen_650x450_escala_y_recorte/public/actividades/Ciudad%20perdida.jpg?itok=M_My6Gws\",\r\n\"fecha_tour\":\"07/10/2026\"\r\n},\r\n\r\n{\r\n\"nombre_destino\":\"Catedral de Sal de Zipaquirá\",\r\n\"descripcion\":\"Maravilla arquitectónica construida dentro de una mina de sal, considerada una de las más impresionantes del mundo.\",\r\n\"precio\":650000,\r\n\"estado\":true,\r\n\"cupos_disponibles\": 9,\r\n\"imagen\":\"https://zipaquiraturistica.com/catedral-de-sal/src/img/fotos/9.webp\",\r\n\"fecha_tour\":\"05/15/2026\"\r\n},\r\n\r\n{\r\n\"nombre_destino\":\"Valle de Cocora\",\r\n\"descripcion\":\"Hogar de la palma de cera, el árbol nacional de Colombia, con paisajes montañosos únicos.\",\r\n\"precio\":700000,\r\n\"estado\":true,\r\n\"cupos_disponibles\": 7,\r\n\"imagen\":\"https://tresorcolombien.com/wp-content/uploads/2024/11/magico-1.png\",\r\n\"fecha_tour\":\"08/02/2026\"\r\n},\r\n\r\n{\r\n\"nombre_destino\":\"Amazonas Colombiano\",\r\n\"descripcion\":\"Experiencia en la selva amazónica con avistamiento de fauna, comunidades indígenas y naturaleza exuberante.\",\r\n\"precio\":1350000,\r\n\"estado\":true,\r\n\"cupos_disponibles\": 5,\r\n\"imagen\":\"https://uvn-brightspot.s3.amazonaws.com/assets/vixes/btg/curiosidades.batanga.com/files/20-fotos-y-datos-interesantes-sobre-el-Amazonas-que-tienes-que-conocer.jpg\",\r\n\"fecha_tour\":\"09/20/2026\"\r\n},\r\n\r\n{\r\n\"nombre_destino\":\"Parque Nacional Natural El Cocuy\",\r\n\"descripcion\":\"Destino de alta montaña con nevados, lagunas glaciares y espectaculares rutas de senderismo.\",\r\n\"precio\":1500000,\r\n\"estado\":true,\r\n\"cupos_disponibles\": 8,\r\n\"imagen\":\"https://situr.boyaca.gov.co/wp-content/uploads/2017/05/2-2.jpg\",\r\n\"fecha_tour\":\"10/11/2026\"\r\n},\r\n\r\n{\r\n\"nombre_destino\":\"Barichara\",\r\n\"descripcion\":\"Considerado uno de los pueblos más lindos de Colombia, con arquitectura colonial bien conservada.\",\r\n\"precio\":680000,\r\n\"estado\":true,\r\n\"cupos_disponibles\": 9,\r\n\"imagen\":\"https://centrocatalina.com/wp-content/uploads/2023/07/e3d9f2d7670ca9435c1da3551904eede.jpg\",\r\n\"fecha_tour\":\"03/27/2026\"\r\n},\r\n\r\n{\r\n\"nombre_destino\":\"Parque Nacional Natural Los Nevados\",\r\n\"descripcion\":\"Complejo volcánico con paisajes andinos, páramos y termales naturales.\",\r\n\"precio\":1300000,\r\n\"estado\":true,\r\n\"cupos_disponibles\": 7,\r\n\"imagen\":\"https://aventureros360.com.co/wp-content/uploads/2025/03/Parque-Nacional-de-los-Nevados-viajar-a-colombia-aventureros-360-2IP.jpg\",\r\n\"fecha_tour\":\"11/19/2026\"\r\n},\r\n\r\n{\r\n\"nombre_destino\":\"Isla Gorgona\",\r\n\"descripcion\":\"Isla del Pacífico colombiano conocida por su biodiversidad marina y avistamiento de ballenas.\",\r\n\"precio\":1450000,\r\n\"estado\":true,\r\n\"cupos_disponibles\": 8,\r\n\"imagen\":\"https://ecolodgecolombia.com/wp-content/uploads/2020/08/Diseno-sin-titulo-95.jpg?x96413\",\r\n\"fecha_tour\":\"12/08/2026\"\r\n}]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3333/tours",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3333",
+              "path": [
+                "tours"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Eliminar",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3333/tours/2",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3333",
+              "path": [
+                "tours",
+                "2"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Actualizar",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "\r\n    {\r\n    \"nombreDestino\": \"Desierto de la Tatacoa\",\r\n    \"descripcion\": \"Es un bosque seco tropical, ideal para la observación astronómica, senderismo y avistamiento de fósiles\",\r\n    \"precio\": 1150000,\r\n    \"estado\": true,\r\n    \"cuposDisponibles\": 10,\r\n    \"imagen\": \"https://www.lacoladerata.co/wp-content/uploads/2020/02/portada-final.png\",\r\n    \"fechaTour\": \"05/02/2026\"\r\n    }",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3333/tours/2",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3333",
+              "path": [
+                "tours",
+                "2"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Tour",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3333/tours/2",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3333",
+              "path": [
+                "tours",
+                "2"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "tiquetes",
+      "item": [
+        {
+          "name": "Listar",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3333/tiquetes",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3333",
+              "path": [
+                "tiquetes"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Crear",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"usuario_id\":4,\r\n    \"tour_id\":1,\r\n    \"cant_personas\":1\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3333/tiquetes",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3333",
+              "path": [
+                "tiquetes"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "tiquete",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3333/tiquetes/2",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3333",
+              "path": [
+                "tiquetes",
+                "2"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Eliminar",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3333/tiquetes/4",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3333",
+              "path": [
+                "tiquetes",
+                "4"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Actualizar",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n      \"cant_personas\": 3\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3333/tiquetes/4",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3333",
+              "path": [
+                "tiquetes",
+                "4"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "misTiquetes",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3333/misTiquetes/4",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3333",
+              "path": [
+                "misTiquetes",
+                "4"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Login",
+      "item": [
+        {
+          "name": "Login",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\":\"ana.or@gmail.com\",\r\n    \"contrasena\":\"1234568\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3333/login",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3333",
+              "path": [
+                "login"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}
