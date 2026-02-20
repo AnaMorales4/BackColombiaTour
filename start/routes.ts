@@ -23,3 +23,4 @@ router.get('/', async () => {
 router.resource('tours',ToursController)
 router.resource('usuarios',UsuariosController)
 router.resource('tiquetes',TiquetesController)
+router.post('login', [UsuariosController, 'login'])
