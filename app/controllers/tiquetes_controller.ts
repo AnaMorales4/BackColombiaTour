@@ -8,8 +8,11 @@ export default class TiquetesController {
        * Return list of all posts or paginate through
        * them
        */
-      async index({}: HttpContext) {
-        return await Tiquete.query().paginate(1, 10)
+      async index({request}: HttpContext) {
+        const page = request.input('page', 1)
+        const limit = request.input('limit', 10)
+
+        return await Tiquete.query().paginate(page, limit)
       }
     
       /**
@@ -62,14 +65,10 @@ export default class TiquetesController {
           return { message: 'Tiquete no encontrado' }
         }
     
-        const data = request.only(['usuario_id', 'tour_id', 'cant_personas', 'total'])
-
-        if (tiquete.tour_id !== data.tour_id) {
-           return { message: 'No se puede cambiar de tour' }           
-        }
+        const data = request.only(['cant_personas', 'total'])
         const tour = await Tour.find(tiquete.tour_id)
         if (!tour) {
-            return { message: 'Tour no encontrado' }
+          return { message: 'Tour no encontrado' }
         }
 
         if (data.cant_personas > tour.cupos_disponibles + tiquete.cant_personas) {
@@ -79,6 +78,9 @@ export default class TiquetesController {
         if (data.cant_personas < tiquete.cant_personas) {
           const diferencia = tiquete.cant_personas - data.cant_personas
           tour.cupos_disponibles += diferencia
+        } else if (data.cant_personas > tiquete.cant_personas) {
+          const diferencia = data.cant_personas - tiquete.cant_personas
+          tour.cupos_disponibles -= diferencia
         }
 
         const nuevo_total = data.cant_personas * tour.precio
@@ -108,4 +110,13 @@ export default class TiquetesController {
         return { message: 'Tiquete eliminado correctamente' }
       }
       
+
+      async misTiquetes({ params }: HttpContext) {
+        const usuario = await Usuario.find(params.usuario_id) 
+        if (!usuario) {
+          return { message: 'Usuario no encontrado' }
+        }
+        const tiquetes = await Tiquete.query().where('usuario_id', params.usuario_id).preload('tour')
+        return tiquetes
+      }
 }
