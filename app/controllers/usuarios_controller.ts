@@ -75,6 +75,6 @@ export default class UsuariosController {
         if (usuario.contrasena !== contrasena) {
           return {message: 'Contraseña incorrecta', Status:false}
         } 
-        return {message: 'Login exitoso', Status:true, rol: usuario.rol}
+        return {message: 'Login exitoso', Status:true, rol: usuario.rol, id:usuario.id_usuario}
          } 
 }
