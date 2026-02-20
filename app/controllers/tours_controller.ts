@@ -6,15 +6,23 @@ export default class ToursController {
    * Return list of all posts or paginate through
    * them
    */
-  async index({}: HttpContext) {
-    return await Tour.query().paginate(1, 10)
+  async index({request}: HttpContext) {
+    const page = request.input('page', 1)
+    const limit = request.input('limit', 10)
+    
+    return await Tour.query().paginate(page, limit)
   }
 
   /**
    * Handle form submission to create a new post
    */
   async store({ request }: HttpContext) {
-    const data = request.only(['nombre_destino', 'descripcion', 'precio', 'estado', 'cupos_disponibles', 'imagen', 'fecha_tour'])
+    const data = request.body()
+
+    if (Array.isArray(data)){
+      const tours = await Tour.createMany(data)
+      return tours
+    }
     const tour = await Tour.create(data)
     return tour
   }
