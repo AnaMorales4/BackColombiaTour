@@ -30,22 +30,19 @@ COPY . .
 # Build application
 RUN npm run build
 
-
+RUN cp .env.example build/.env
+RUN cp .env.example .env
 # Final stage for app image
 FROM base
 
 # Copy built application
 COPY --from=build /app /app
 
+RUN npm ci --production
+RUN node ace generate:key
 # Entrypoint sets up the container.
 ENTRYPOINT [ "/app/docker-entrypoint.js" ]
 
-# Start the server by default, this can be overwritten at runtime
-EXPOSE 3000
-ENV CACHE_VIEWS="true" \
-    DB_CONNECTION="pg" \
-    DRIVE_DISK="local" \
-    HOST="0.0.0.0" \
-    PORT="3000" \
-    SESSION_DRIVER="cookie"
-CMD [ "node", "/app/build/server.js" ]
+
+EXPOSE 3333
+CMD ["node", "bin/server.js"]
