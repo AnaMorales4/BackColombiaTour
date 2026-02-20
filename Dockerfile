@@ -13,6 +13,8 @@ RUN node ace build --ignore-ts-errors
 RUN cp .env.example build/.env
 RUN cp .env.example .env
 
+RUN mkdir -p build/docs && cp -r docs/* build/docs/
+
 WORKDIR /app/build
 
 RUN npm ci --production
