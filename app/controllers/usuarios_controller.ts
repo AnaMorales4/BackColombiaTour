@@ -1,7 +1,5 @@
 import type { HttpContext } from '@adonisjs/core/http'
 import Usuario from '#models/usuario'
-import Status from '@adonisjs/lucid/commands/migration/status'
-import { stat } from 'fs'
 
 export default class UsuariosController {
         /**
