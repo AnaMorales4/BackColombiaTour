@@ -1,5 +1,8 @@
 import { DateTime } from 'luxon'
-import { BaseModel, column } from '@adonisjs/lucid/orm'
+import { BaseModel, column, hasOne } from '@adonisjs/lucid/orm'
+import Usuario from '#models/usuario'
+import Tour from '#models/tour'
+import type { HasOne } from '@adonisjs/lucid/types/relations'
 
 export default class Tiquete extends BaseModel {
   @column({ isPrimary: true })
@@ -19,4 +22,17 @@ export default class Tiquete extends BaseModel {
 
   @column.dateTime({ autoCreate: true })
   declare fecha_compra: DateTime
+
+  // Relaciones
+  @hasOne(() => Usuario, {
+    foreignKey: 'id',
+    localKey: 'usuario_id',
+  })
+  declare usuario: HasOne<typeof Usuario>
+
+  @hasOne(() => Tour, {
+    foreignKey: 'id_tour',
+    localKey: 'tour_id',
+  })
+  declare tour: HasOne<typeof Tour>
 }
