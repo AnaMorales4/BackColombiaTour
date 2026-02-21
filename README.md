@@ -2,6 +2,23 @@
 
 API desarrollada con AdonisJS y PostgreSQL para la gestión de usuarios, tours y tiquetes del sistema Colombia Tour.
 
+## Instalación y ejecución
+1. Clonar el repositorio:
+git clone https://github.com/AnaMorales4/BackColombiaTour.git
+
+2. Ingresar al directorio del proyecto:
+cd BackColombiaTour
+
+Instalar dependencias:
+npm install
+
+Ejecutar el proyecto en modo desarrollo:
+npm run dev
+
+La aplicación estará disponible en:
+
+http://localhost:3333
+
 ## Tecnologías utilizadas
 
 - AdonisJS
